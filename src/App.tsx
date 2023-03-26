@@ -1,14 +1,15 @@
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Box, CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { routes as appRoutes } from "./routes";
 import Header from "./components/Header";
-import Home from "./pages/Home";
 
 function App() {
   // define theme
   const theme = createTheme({
+    typography: {
+      fontFamily: "Rubik, sans-serif",
+    },
     palette: {
       primary: {
         light: "#63b8ff",
