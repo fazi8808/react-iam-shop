@@ -4,7 +4,7 @@ import About from "./pages/About";
 import Products from "./pages/Products";
 
 // other
-import {FC} from "react";
+import { FC } from "react";
 
 // interface
 interface Route {
