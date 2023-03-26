@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Grid, Box, Container } from "@mui/material";
-import DropDownWithAccordian from "./DropDownWithAccordian";
+import DropDownWithAccordion from "./DropDownWithAccordion";
 import SearchField from "./SearchField";
 import TableView from "./TableView";
 import BoxesLayout from "./BoxesLayout";
@@ -19,7 +19,7 @@ export default function ContainerWrapper() {
       <Container maxWidth="xl">
         <Grid container spacing={3}>
           <Grid item xs={12} md={3}>
-            <DropDownWithAccordian />
+            <DropDownWithAccordion />
           </Grid>
           <Grid item xs>
             <SearchField />
