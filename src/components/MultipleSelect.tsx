@@ -1,10 +1,12 @@
-import * as React from 'react';
-import { Theme, useTheme } from '@mui/material/styles';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import * as React from "react";
+import { Theme, useTheme } from "@mui/material/styles";
+import {
+  FormControl,
+  MenuItem,
+  InputLabel,
+  OutlinedInput,
+} from "@mui/material";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -17,11 +19,7 @@ const MenuProps = {
   },
 };
 
-const names = [
-  'All',
-  'One-Time Access',
-  'Pre-Approved',
-];
+const names = ["All", "One-Time Access", "Pre-Approved"];
 
 function getStyles(name: string, personName: string[], theme: Theme) {
   return {
@@ -42,34 +40,32 @@ export default function MultipleSelect() {
     } = event;
     setPersonName(
       // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value,
+      typeof value === "string" ? value.split(",") : value
     );
   };
 
   return (
-    <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-name-label">All</InputLabel>
-        <Select
-          labelId="demo-multiple-name-label"
-          id="demo-multiple-name"
-          // multiple
-          value={personName}
-          onChange={handleChange}
-          input={<OutlinedInput label="All" />}
-          MenuProps={MenuProps}
-        >
-          {names.map((name) => (
-            <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, personName, theme)}
-            >
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </div>
+    <FormControl sx={{ m: 2, width: "90%" }}>
+      <InputLabel id="demo-multiple-name-label">All</InputLabel>
+      <Select
+        labelId="demo-multiple-name-label"
+        id="demo-multiple-name"
+        // multiple
+        value={personName}
+        onChange={handleChange}
+        input={<OutlinedInput label="All" />}
+        MenuProps={MenuProps}
+      >
+        {names.map((name, index) => (
+          <MenuItem
+            key={index}
+            value={name}
+            style={getStyles(name, personName, theme)}
+          >
+            {name}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 }
